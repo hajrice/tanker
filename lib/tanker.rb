@@ -111,7 +111,7 @@ module Tanker
       #query = "(#{search_on_fields}:(#{query.to_s}) OR __any:(#{query.to_s})) __type:(#{models.map(&:name).map {|name| "\"#{name.split('::').join(' ')}\"" }.join(' OR ')})"
       #query = "(#{search_on_fields}:(#{query.to_s})) __type:(#{models.map(&:name).map {|name| "\"#{name.split('::').join(' ')}\"" }.join(' OR ')})"
       
-      query = query.gsub('*', '').gsub(':', '').gsub(';', '')
+      query = query.gsub('*', '').gsub(';', '')
 
       query = "((#{query.to_s})) __type:(#{models.map(&:name).map {|name| "\"#{name.split('::').join(' ')}\"" }.join(' OR ')})"
       
